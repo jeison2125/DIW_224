@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="estilo_2.css" rel="stylesheet">
+    </head>
+    <body>
+    <header>
+        <h1>AstroGalaxias</h1>
+        <nav class="navbar">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="menu">
+                <li><a href="#galaxias">Tipos de Galaxias</a></li>
+                <li><a href="#timeline">Descubrimientos</a></li>
+                <li><a href="#fichas">Datos Técnicos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+   
+
+
+    <section class="hero">
+        <h2>Explora el Cosmos</h2>
+        <p>Descubre los diferentes tipos de galaxias que pueblan nuestro universo</p>
+    </section>
+
+<div class="galaxia-contenedor">
+<div class="galaxia">
+    <img class="galaxia-video galaxia-imagen" src="galaxia_sin_mas.jpg" alt="video 1" data-video="https://youtu.be/5_wjIT0FKA8?si=_pXQg03I7JMg4ADM">
+    <h2>video 1</h2>
+    <p class="galaxia-texto">hola</p>
+</div>
+<div class="galaxia galaxia-destacada">
+    <img class="galaxia-video galaxia-imagen" src="https://via.placeholder.com/400x200?text=Galaxy+2" alt="video 2" data-video="">
+    <h2>video2</h2>
+    <p class="galaxia-texto">hola</p>
+</div>
+<div class="galaxia">
+    <img class="galaxia-video galaxia-imagen" src="https://via.placeholder.com/400x200?text=Galaxy+3" alt="video 3" data-video="">
+    <h2>video3</h2>
+    <p class="galaxia-texto">hola</p>
+</div>
+<div class="galaxia">
+    <img class="galaxia-video galaxia-imagen" src="https://via.placeholder.com/400x200?text=Galaxy+4" alt="video 4" data-video="">
+    <h2>video4</h2>
+    <p class="galaxia-texto">hola</p>
+</div>
+<div class="galaxia">
+    <img class="galaxia-video galaxia-imagen" src="https://via.placeholder.com/400x200?text=Galaxy+5" alt="video 5" data-video="">
+    <h2>video5</h2>
+    <p class="galaxia-texto">hola</p>
+</div>
+<div class="galaxia">
+    <img class="galaxia-video galaxia-imagen" src="https://via.placeholder.com/400x200?text=Galaxy+6" alt="video 6" data-video="">
+    <h2>video6</h2>
+    <p class="galaxia-texto">hola</p>
+</div>
+<div class="galaxia">
+    <img class="galaxia-video galaxia-imagen" src="https://via.placeholder.com/400x200?text=Galaxy+7" alt="video 7" data-video="">
+    <h2>video7</h2>
+    <p class="galaxia-texto">hola</p>
+</div>
+<div class="galaxia">
+    <img class="galaxia-video galaxia-imagen" src="https://via.placeholder.com/400x200?text=Galaxy+8" alt="video 8" data-video="">
+    <h2>video8</h2>
+    <p class="galaxia-texto">hola</p>
+</div>
+<div class="galaxia">
+    <img class="galaxia-video galaxia-imagen" src="https://via.placeholder.com/400x200?text=Galaxy+9" alt="video 9" data-video="">
+    <h2>video9</h2>
+    <p class="galaxia-texto">hola</p>
+</div>
+<div class="galaxia">
+    <img class="galaxia-video galaxia-imagen" src="https://via.placeholder.com/400x200?text=Galaxy+10" alt="video 10" data-video="">
+    <h2>video10</h2>
+    <p class="galaxia-texto">hola</p>
+</div>
+<div class="galaxia">
+    <img class="galaxia-video galaxia-imagen" src="https://via.placeholder.com/400x200?text=Galaxy+11" alt="video 11" data-video="">
+    <h2>video11</h2>
+    <p class="galaxia-texto">hola</p>
+</div>
+<div class="galaxia">
+    <img class="galaxia-video galaxia-imagen" src="https://via.placeholder.com/400x200?text=Galaxy+12" alt="video 12" data-video="">
+    <h2>video12</h2>
+    <p class="galaxia-texto">hola</p>
+</div>
+
+</div>
+
+<!-- Modal para reproducir video -->
+<div id="videoModal" class="modal">
+    <div class="modal-contenido">
+        <button class="modal-cerrar">&times;</button>
+        <div id="modalVideoContainer">
+            <video id="modalVideo" class="modal-video" controls style="display:none;">
+                <source id="modalVideoSource" src="" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
+            <iframe id="modalIframe" class="modal-video" style="display:none; border:none;" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+<footer></footer>
+
+    <script>
+        // Obtener elementos del DOM
+        const imagenes = document.querySelectorAll('.galaxia-imagen');
+        const modal = document.getElementById('videoModal');
+        const modalVideo = document.getElementById('modalVideo');
+        const modalVideoSource = document.getElementById('modalVideoSource');
+        const modalIframe = document.getElementById('modalIframe');
+        const botoncerrar = document.querySelector('.modal-cerrar');
+
+        // Función para extraer ID de YouTube
+        function getYoutubeId(url) {
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+            const match = url.match(regExp);
+            return (match && match[2].length == 11) ? match[2] : null;
+        }
+
+        // Agregar evento de clic a cada imagen
+        imagenes.forEach(imagen => {
+            imagen.addEventListener('click', function() {
+                const videoUrl = this.getAttribute('data-video');
+                
+                if (!videoUrl) {
+                    alert('Por favor, agrega la URL del video');
+                    return;
+                }
+
+                // Detectar si es URL de YouTube
+                const youtubeId = getYoutubeId(videoUrl);
+                
+                if (youtubeId) {
+                    // Mostrar iframe de YouTube
+                    modalVideo.style.display = 'none';
+                    modalIframe.style.display = 'block';
+                    modalIframe.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1`;
+                } else {
+                    // Mostrar video HTML5
+                    modalIframe.style.display = 'none';
+                    modalVideo.style.display = 'block';
+                    modalVideoSource.src = videoUrl;
+                    modalVideo.load();
+                    modalVideo.play();
+                }
+                
+                modal.style.display = 'flex';
+            });
+        });
+
+        // Cerrar modal al hacer clic en el botón cerrar
+        botoncerrar.addEventListener('click', function() {
+            modal.style.display = 'none';
+            modalVideo.pause();
+            modalVideoSource.src = '';
+            modalIframe.src = '';
+        });
+
+        // Cerrar modal al hacer clic fuera del contenido
+        modal.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                modalVideo.pause();
+                modalVideoSource.src = '';
+                modalIframe.src = '';
+            }
+        });
+
+        // Cambiar cursor para indicar que es clickable
+        document.addEventListener('DOMContentLoaded', function() {
+            imagenes.forEach(imagen => {
+                imagen.style.cursor = 'pointer';
+            });
+        });
+    </script>
+    </body>
+</html>

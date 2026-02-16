@@ -1,0 +1,278 @@
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Oswald&display=swap');
+:root {
+    --color-principal: #0a1929;
+    --color-secundario: #6a0dad;
+    --color-acento: #ffd700;
+    --espacio-base: 20px;
+    --radio-bordes: 12px;
+    --sombra: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body{
+    font-family: 'Lato', sans-serif;
+    background-color: var(--color-principal);
+    color: var(--color-acento); /* Default text color */
+
+       
+}
+body h2{
+  text-align: center;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--espacio-base);
+    background-color: var(--color-principal);
+    height: 70px;
+    position: relative; /* Necesario para el menú en móvil */
+    z-index: 100;
+}
+
+/* --- Vista de Escritorio (> 768px) --- */
+.navbar .menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .menu li {
+    margin-left: var(--espacio-base);
+}
+
+.navbar .menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar .menu a:hover {
+    color: var(--color-acento);
+}
+
+.nav-toggle,
+.nav-toggle-icon {
+    display: none; /* Oculto en escritorio */
+}
+
+
+
+
+header > div:first-child {
+    font-size: 20px;
+    font-weight: bold;
+    color: #666;
+    width: 150px;
+    height: 30px;
+    background-color: #999;
+}
+
+.hero{
+    background-image: url('Starsinthesky.jpg');
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 var(--espacio-base);
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.3);
+}
+
+.hero h2 {
+    font-size: clamp(2.8rem, 7vw, 4.5rem);
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 0.2em;
+    text-shadow: 0 2px 15px rgba(0,0,0,0.5);
+    color: white;
+}
+
+.hero h2 + p {
+    margin-top: var(--espacio-base);
+}
+/* BANNER PRINCIPAL */
+body > div:nth-child(2) {
+    background-color: #c0c0c0;
+    height: 100px;
+    margin: 0 20px 30px 20px;
+    border-radius: 5px;
+}
+
+/* GALERÍA DE GALAXIAS */
+.galaxia-contenedor {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 40px;
+    max-width: 1400px;
+    margin: 0 auto 40px;
+}
+
+.galaxia {
+    background-color: rgba(20, 30, 50, 0.8);
+    border: 2px solid transparent;
+    border-radius: var(--radio-bordes);
+    padding: 20px;
+    transition: all 0.3s ease;
+    box-shadow: var(--sombra);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    
+}
+.galaxia p {
+    margin-top: auto;
+   color: white;
+
+}
+.galaxia h2 {
+    margin-top: auto;
+  align-items: end;
+
+}
+
+
+.galaxia:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(106, 13, 173, 0.4);
+}
+
+.galaxia-video {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    background-color: #000;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.galaxia-texto {
+    color: var(--color-acento);
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+  
+}
+
+/* Tarjeta destacada (Irregulares) */
+
+
+/* FOOTER */
+footer {
+    background-color: var(--color-principal);
+    height: 80px;
+    margin-top: 40px;
+    border-radius: 5px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .galaxia-contenedor {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .galaxia-contenedor {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* MODAL PARA VIDEOS */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contenido {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    background-color: #000;
+    border-radius: var(--radio-bordes);
+    box-shadow: 0 8px 32px rgba(106, 13, 173, 0.6);
+}
+
+.modal-video {
+    width: 100%;
+    max-height: 80vh;
+    border-radius: var(--radio-bordes);
+}
+
+.modal-cerrar {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: var(--color-acento);
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    background: none;
+    border: none;
+    z-index: 1001;
+    transition: color 0.3s ease;
+}
+
+.modal-cerrar:hover {
+    color: #fff;
+}
+
+/* Estilos adicionales para imágenes */
+.galaxia-imagen {
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.galaxia-imagen:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+@media (max-width: 768px) {
+    .modal-video {
+        max-height: 60vh;
+    }
+    
+    .modal-cerrar {
+        font-size: 28px;
+        top: 10px;
+        right: 15px;
+    }
+}

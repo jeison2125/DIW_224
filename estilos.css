@@ -1,0 +1,417 @@
+/* agregar oblicatoriamente estos estilos   
+- Color Principal: azul oscuro (#0a1929)
+  - Color Secundario: púrpura (#6a0dad)
+  - Color Acento: dorado (#ffd700)
+  - Espacio Base: 20px
+  - Radio de los bordes: 12px
+  - Sombra: 0 4px 6px rgba(0, 0, 0, 0.3 */
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Oswald&display=swap');
+:root {
+    --color-principal: #0a1929;
+    --color-secundario: #6a0dad;
+    --color-acento: #ffd700;
+    --espacio-base: 20px;
+    --radio-bordes: 12px;
+    --sombra: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+    background-color: var(--color-principal);
+    color: white; /* Default text color */
+       
+}
+body h2{
+  text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: var(--espacio-base);
+    background-color: var(--color-principal);
+    color: #ffffff;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0 0 10px 0;
+    color: #ffffff;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--color-acento);
+}
+
+h1, h2, h3, h4, h5 {
+    color: var(--color-acento); /* Title color */
+}
+
+.hero{
+    background-image: url('Starsinthesky.jpg');
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 var(--espacio-base);
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.3);
+}
+
+.hero h2 {
+    font-size: clamp(2.8rem, 7vw, 4.5rem);
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 0.2em;
+    text-shadow: 0 2px 15px rgba(0,0,0,0.5);
+    color: white;
+}
+
+.hero h2 + p {
+    margin-top: var(--espacio-base);
+}
+
+/* Layout for #galaxias */
+#galaxias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espacio-base);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--espacio-base);
+   
+}
+
+#galaxias h2{
+    text-align: center;
+    margin-bottom: var(--espacio-base);}
+
+#galaxias .galaxia-card {
+  border: 1px solid var(--color-principal);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: var(--espacio-base);
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radio-bordes);
+}
+
+#galaxias .galaxia-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+}
+
+#galaxias .galaxia-card:nth-child(3) {
+  border: 3px solid var(--color-secundario);
+
+}
+
+/* This rule can be deleted */
+.galeria-galaxias h3 {
+    color: var(--color-acento);
+}
+
+/* Layout for .timeline-descubrimientos */
+.timeline-descubrimientos {
+    max-width: 1200px;
+    margin: 5px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 5px;
+    padding: var(--espacio-base);
+}
+.timeline-descubrimientos .evento {
+    background: linear-gradient(180deg, #2a1f55, #221a45);
+    border-radius: var(--radio-bordes);
+    padding: 26px;
+    position: relative;
+    border: 1px solid rgba(160, 120, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-principal);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-secundario);
+  border-radius: var(--radio-bordes);
+  border: 2px solid var(--color-principal);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-acento);
+}
+
+.timeline-descubrimientos .evento:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+}
+
+.timeline-descubrimientos .evento:first-of-type {
+    border-top: 4px solid var(--color-acento);
+}
+
+.timeline-descubrimientos .evento:last-of-type {
+    border-bottom: 4px solid var(--color-acento);
+}
+
+.timeline-descubrimientos .evento.highlight::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 18px;
+    bottom: 18px;
+    width: 5px;
+    border-radius: 10px;
+    background: linear-gradient(var(--color-acento), #ffb300);
+}
+
+.timeline-descubrimientos .evento h4 { 
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-acento);
+    margin-bottom: 10px;
+}
+
+.timeline-descubrimientos .evento h5 { 
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-secundario);
+    margin-bottom: 12px;
+}
+
+.timeline-descubrimientos .evento p { 
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #cfd8ff;
+}
+
+/* Media query for the Timeline */
+@media (min-width: 768px) {
+    .timeline-descubrimientos {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .timeline-descubrimientos > .evento {
+        width: 45%;
+        margin: var(--espacio-base);
+    }
+}
+
+
+    .timeline-descubrimientos > .evento {
+        width: 45%;
+        margin: var(--espacio-base);
+    }
+
+
+    /* --- Estilos para Fichas Técnicas --- */
+
+.fichas-tecnicas {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--espacio-base) * 2);
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: var(--espacio-base);
+}
+
+.fichas-tecnicas .ficha {
+    background: linear-gradient(180deg, #0e2238, #091726);
+    border-radius: var(--radio-bordes);
+    padding: var(--espacio-base);
+    box-shadow: 0 0 0 1px rgba(140, 160, 255, 0.08),
+                0 8px 30px rgba(0, 0, 0, 0.6);
+    position: relative;
+    border: none;
+    backdrop-filter: blur(6px);
+}
+
+.fichas-tecnicas .ficha::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 15px;
+    width: 6px;
+    height: 80%;
+    border-radius: 8px;
+    background: linear-gradient(#7a5cff, #c84cff);
+}
+
+.fichas-tecnicas .ficha h4 {
+    font-size: 1.8rem;
+    color: var(--color-acento);
+    margin-bottom: 15px;
+}
+
+.fichas-tecnicas .ficha .descripcion-larga p {
+    line-height: 1.7;
+    margin: 12px 0;
+    color: #c7d6ff;
+}
+
+.fichas-tecnicas .datos-tabla {
+    margin-top: 25px;
+    border-radius: var(--radio-bordes);
+    overflow: hidden;
+    background: linear-gradient(180deg, #1a1a40, #121230);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+}
+
+.fichas-tecnicas .datos-tabla table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.fichas-tecnicas .datos-tabla th,
+.fichas-tecnicas .datos-tabla td {
+    padding: 14px 18px;
+    text-align: left;
+}
+
+.fichas-tecnicas .datos-tabla th {
+    color: var(--color-acento);
+    font-weight: 600;
+    background: rgba(120, 70, 255, 0.15);
+}
+
+.fichas-tecnicas .datos-tabla td {
+    color: #d0dcff;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.fichas-tecnicas .datos-tabla tr:hover {
+    background: rgba(120, 70, 255, 0.08);
+}
+/* --- Estilos del Header y Menú Hamburguesa --- */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--espacio-base);
+    background-color: var(--color-principal);
+    height: 70px;
+    position: relative; /* Necesario para el menú en móvil */
+    z-index: 100;
+}
+
+/* --- Vista de Escritorio (> 768px) --- */
+.navbar .menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .menu li {
+    margin-left: var(--espacio-base);
+}
+
+.navbar .menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar .menu a:hover {
+    color: var(--color-acento);
+}
+
+.nav-toggle,
+.nav-toggle-icon {
+    display: none; /* Oculto en escritorio */
+}
+
+
+/* --- Vista Móvil / Hamburguesa (<= 768px) --- */
+@media (max-width: 768px) {
+    /* Mostramos el icono de la hamburguesa */
+    .nav-toggle-icon {
+        display: block;
+        cursor: pointer;
+        position: relative;
+        width: 30px;
+        height: 22px;
+        z-index: 1002;
+    }
+
+    .nav-toggle-icon span {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: white;
+        border-radius: 2px;
+        transition: transform 0.3s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+                    opacity 0.3s ease;
+    }
+
+    .nav-toggle-icon span:nth-child(1) { top: 0; }
+    .nav-toggle-icon span:nth-child(2) { top: 9px; }
+    .nav-toggle-icon span:nth-child(3) { top: 18px; }
+
+    /* Ocultamos el menú horizontal y lo preparamos como overlay */
+    .navbar .menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(10, 25, 41, 0.98);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(-100%);
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+        z-index: 1000;
+    }
+
+    .navbar .menu li {
+        margin: 20px 0;
+    }
+
+    .navbar .menu a {
+        font-size: clamp(1.8rem, 5vw, 2.8rem);
+        font-family: 'Oswald', sans-serif;
+        color: var(--color-acento);
+    }
+
+    /* Funcionalidad del Toggle */
+    .nav-toggle:checked ~ .menu {
+        transform: translateX(0);
+    }
+
+    .nav-toggle:checked ~ .nav-toggle-icon span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .nav-toggle:checked ~ .nav-toggle-icon span:nth-child(2) {
+        opacity: 0;
+        transform: scale(0.1);
+    }
+
+    .nav-toggle:checked ~ .nav-toggle-icon span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+}
+
+
