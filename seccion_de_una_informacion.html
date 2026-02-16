@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Información de Galaxia - AstroGalaxias</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="estilo_2.css" rel="stylesheet">
+        <style>
+            /* Estilos adicionales para la página de información */
+            .info-seccion {
+                max-width: 1200px;
+                margin: 40px auto;
+                padding: 0 20px;
+            }
+
+            .info-contenedor {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 40px;
+                align-items: center;
+                justify-items: center;
+            }
+
+            .info-video {
+                position: relative;
+                width: 100%;
+                max-width: 900px;
+                aspect-ratio: 16/9;
+                background-color: #000;
+                border-radius: var(--radio-bordes);
+                overflow: hidden;
+                box-shadow: 0 8px 16px rgba(106, 13, 173, 0.4);
+            }
+
+            .info-video iframe,
+            .info-video video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .info-datos {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                width: 100%;
+                max-width: 900px;
+            }
+
+            .info-datos h2 {
+                font-size: 2.5rem;
+                font-family: 'Oswald', sans-serif;
+                color: var(--color-acento);
+                margin: 0;
+                text-transform: uppercase;
+            }
+
+            .info-datos .subtitulo {
+                font-size: 1.2rem;
+                color: var(--color-acento);
+                font-weight: bold;
+                margin: 0;
+            }
+
+            .info-datos p {
+                color: white;
+                font-size: 1rem;
+                line-height: 1.6;
+                margin: 0;
+            }
+
+            .info-caracteristicas {
+                background-color: rgba(20, 30, 50, 0.8);
+                padding: 20px;
+                border-radius: var(--radio-bordes);
+                border-left: 4px solid var(--color-secundario);
+            }
+
+            .info-caracteristicas h3 {
+                color: var(--color-acento);
+                font-size: 1.2rem;
+                margin-top: 0;
+                font-family: 'Oswald', sans-serif;
+                text-transform: uppercase;
+            }
+
+            .caracteristica-item {
+                display: flex;
+                gap: 10px;
+                margin-bottom: 10px;
+                color: white;
+            }
+
+            .caracteristica-item:last-child {
+                margin-bottom: 0;
+            }
+
+            .caracteristica-item strong {
+                color: var(--color-acento);
+                min-width: 120px;
+            }
+
+            @media (max-width: 1024px) {
+                .info-datos h2 {
+                    font-size: 2rem;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .info-seccion {
+                    margin: 20px auto;
+                }
+
+                .info-datos h2 {
+                    font-size: 1.8rem;
+                }
+
+                .info-datos .subtitulo {
+                    font-size: 1rem;
+                }
+
+                .info-caracteristicas {
+                    padding: 15px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+    <header>
+        <h1>AstroGalaxias</h1>
+        <nav class="navbar">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="menu">
+                <li><a href="astrogalaxias.html">Inicio</a></li>
+                <li><a href="seccion_de_galaxia.html">Videos</a></li>
+                <li><a href="#informacion">Información</a></li>
+                <li><a href="seccion_de_una_informacion.html">Video Promocional</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <section class="info-seccion" id="informacion">
+        <div class="info-contenedor">
+            <!-- VIDEO PRINCIPAL -->
+            <div class="info-video" id="videoPrincipal">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/5_wjIT0FKA8?si=_pXQg03I7JMg4ADM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <!-- INFORMACIÓN LATERAL -->
+            <div class="info-datos">
+                <h2 id="tituloGalaxia">Galaxia Espiral</h2>
+                <p class="subtitulo">Tipo: Espiral Grande</p>
+                
+                <p>Descubre los misterios de esta majestuosa galaxia que forma parte de nuestro universo. Con millones de estrellas y una estructura fascinante, representa uno de los objetos más estudiados por los astrónomos modernos.</p>
+
+                <div class="info-caracteristicas">
+                    <h3>Características Principales</h3>
+                    <div class="caracteristica-item">
+                        <strong>Diámetro:</strong>
+                        <span>100,000 años luz</span>
+                    </div>
+                    <div class="caracteristica-item">
+                        <strong>Masa:</strong>
+                        <span>1.5 × 10¹² masas solares</span>
+                    </div>
+                    <div class="caracteristica-item">
+                        <strong>Distancia:</strong>
+                        <span>2.5 millones años luz</span>
+                    </div>
+                    <div class="caracteristica-item">
+                        <strong>Estrellas:</strong>
+                        <span>200-400 mil millones</span>
+                    </div>
+                    <div class="caracteristica-item">
+                        <strong>Descripción:</strong>
+                        <span>Posee brazos espirales curvos con un bulbo central masivo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer></footer>
+
+    </body>
+</html>
